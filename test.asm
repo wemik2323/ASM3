@@ -8,7 +8,7 @@ section .bss
 section .data
     msg db "Hello boba", 10, 0
     frm db "%hi%hi", 0
-    frm2 db "%hi", 0
+    frm2 db "%hi", 10, 0
 
 section .text
     global main
@@ -22,14 +22,41 @@ main:
     mov edx, jopa
     call scanf
 
-    cmp [ziga], [jopa]
-    mov eax, [ziga]
-    mov ebx, [jopa]
-    sub eax, ebx
-    mov ebx, [jopa]
-    xor edx, edx
-    idiv ebx 
+    mov ax, [ziga]
+    mov bx, [jopa]
+    cmp ax, bx
+    jl Men
+    je Rav
+    sub ax, bx
+    mov bx, [jopa]
+    ; xor edx, edx
+    cwd
+    idiv bx 
 
+    mov edi, frm2
+    mov esi, eax
+    call printf
+
+    mov rsp, rbp
+    pop rbp
+    ret
+
+
+Men:
+    ; xor dx, dx
+    cwd
+    idiv bx
+    add ax, 5
+    mov edi, frm2
+    mov esi, eax
+    call printf
+
+    mov rsp, rbp
+    pop rbp
+    ret
+
+Rav:
+    mov ax, 256
     mov edi, frm2
     mov esi, eax
     call printf
