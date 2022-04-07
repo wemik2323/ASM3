@@ -19,11 +19,11 @@ main:
     push rbp
     mov rbp, rsp
 
-    mov edi, msg
+    mov rdi, msg
     call printf
 
-    mov edi, frm2
-    mov esi, chz
+    mov rdi, frm2
+    mov rsi, chz
     call scanf
 
     mov ecx, [chz]
@@ -37,9 +37,9 @@ main:
     ret
 
 SSI:
-    mov edi, frm
-    mov esi, ziga
-    mov edx, jopa
+    mov rdi, frm
+    mov rsi, ziga
+    mov rdx, jopa
     call scanf
 
     mov ax, [ziga]
@@ -53,7 +53,7 @@ SSI:
     cwd
     idiv bx 
 
-    mov edi, frm2
+    mov rdi, frm2
     mov esi, eax
     call printf
 
@@ -67,7 +67,7 @@ Men:
     cwd
     idiv bx
     add ax, 5
-    mov edi, frm2
+    mov rdi, frm2
     mov esi, eax
     call printf
 
@@ -77,7 +77,7 @@ Men:
 
 Rav:
     mov ax, 256
-    mov edi, frm2
+    mov rdi, frm2
     mov esi, eax
     call printf
 
@@ -86,9 +86,9 @@ Rav:
     ret
 
 USI:
-    mov edi, frm
-    mov esi, ziga
-    mov edx, jopa
+    mov rdi, frm
+    mov rsi, ziga
+    mov rdx, jopa
     call scanf
 
     mov ax, [ziga]
@@ -102,7 +102,7 @@ USI:
     ;cwd
     idiv bx 
 
-    mov edi, frm2
+    mov rdi, frm2
     mov esi, eax
     call printf
 
@@ -116,7 +116,7 @@ Men2:
     ;cwd
     idiv bx
     add ax, 5
-    mov edi, frm2
+    mov rdi, frm2
     mov esi, eax
     call printf
 
@@ -126,7 +126,7 @@ Men2:
 
 Rav2:
     mov ax, 256
-    mov edi, frm2
+    mov rdi, frm2
     mov esi, eax
     call printf
 
